@@ -1,0 +1,367 @@
+
+/* General styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F7F3EA;
+    color: #352820;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 7%;
+    background-color: #F7F3EA;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #641F32;
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #68704A;
+}
+
+.desktop-nav {
+    display: flex;
+    gap: 35px;
+}
+
+.desktop-nav a {
+    text-decoration: none;
+    color: #59483E;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.desktop-nav a:hover {
+    color: #8B354B;
+}
+
+/* Hero section */
+.hero {
+    padding: 40px 7%;
+    background-color: #641F32;
+    color: #F7F3EA;
+    text-align: center;
+}
+
+.eyebrow {
+    color: #B9B78F;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.1;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+.hero-description {
+    max-width: 480px;
+    margin: 0 auto 30px;
+    color: #E6D8D0;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.explore-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #68704A;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    transition: background-color 0.3s;
+}
+
+.explore-button:hover {
+    background-color: #858B61;
+}
+
+/* Explore section */
+.explore-section {
+    padding: 75px 7%;
+}
+
+.section-heading {
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    font-family: Georgia, serif;
+    font-size: 36px;
+    font-weight: normal;
+    color: #641F32;
+}
+
+/* Categories */
+.categories {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+}
+
+.category {
+    padding: 11px 20px;
+    border: 1px solid #B8B69B;
+    border-radius: 30px;
+    background: transparent;
+    color: #535B3B;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.category:hover,
+.category.active {
+    background-color: #68704A;
+    color: white;
+    border-color: #68704A;
+}
+
+/* Search bar */
+.search-container {
+    margin-bottom: 25px;
+}
+
+.search-container input {
+    width: 100%;
+    max-width: 450px;
+    padding: 15px 18px;
+    border: 1px solid #B8B69B;
+    border-radius: 30px;
+    background-color: #FFFFFF;
+    color: #352820;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-container input:focus {
+    border-color: #641F32;
+    box-shadow: 0 0 0 2px rgba(100, 31, 50, 0.1);
+}
+
+.search-container input::placeholder {
+    color: #92916B;
+}
+
+/* Search bar */
+.search-container {
+    margin-bottom: 25px;
+}
+
+.search-container input {
+    width: 100%;
+    max-width: 450px;
+    padding: 15px 18px;
+    border: 1px solid #B8B69B;
+    border-radius: 30px;
+    background-color: #FFFFFF;
+    color: #352820;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-container input:focus {
+    border-color: #641F32;
+    box-shadow: 0 0 0 2px rgba(100, 31, 50, 0.1);
+}
+
+.search-container input::placeholder {
+    color: #92916B;
+}
+
+/* Hairstyle cards */
+.hairstyle-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+}
+
+.hairstyle-card {
+    cursor: pointer;
+}
+
+.image-placeholder {
+    height: 290px;
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-end;
+    padding: 18px;
+    margin-bottom: 15px;
+    transition: transform 0.3s;
+}
+
+.image-placeholder:hover {
+    transform: translateY(-5px);
+}
+
+.image-placeholder span {
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.braids {
+    background: linear-gradient(135deg, #641F32, #A45D65);
+}
+
+.natural {
+    background: linear-gradient(135deg, #68704A, #A7A77E);
+}
+
+.locs {
+    background: linear-gradient(135deg, #47202D, #8B354B);
+}
+
+.twists {
+    background: linear-gradient(135deg, #535B3B, #92916B);
+}
+
+.hairstyle-card h3 {
+    font-family: Georgia, serif;
+    font-size: 19px;
+    font-weight: normal;
+    color: #641F32;
+    margin-bottom: 7px;
+}
+
+.hairstyle-card p {
+    font-size: 13px;
+    color: #817B6A;
+}
+
+/* Footer */
+footer {
+    padding: 30px 7%;
+    border-top: 1px solid #DED7C9;
+    display: flex;
+    justify-content: space-between;
+    color: #68704A;
+    font-size: 12px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px 5%;
+    }
+
+    .desktop-nav {
+        gap: 15px;
+    }
+
+    .desktop-nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 75px 6%;
+    }
+
+    .explore-section {
+        padding: 55px 5%;
+    }
+
+    .hairstyle-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .image-placeholder {
+        height: 230px;
+    }
+
+    footer {
+        padding: 25px 5%;
+    }
+}
+
+@media (max-width: 400px) {
+    .desktop-nav {
+        gap: 10px;
+    }
+
+    .desktop-nav a {
+        font-size: 11px;
+    }
+
+    .image-placeholder {
+        height: 190px;
+    }
+}
+
+
+/* Favourite buttons */
+.favourite-btn {
+    padding: 10px 15px;
+    margin-top: 12px;
+    border: 1px solid #641F32;
+    border-radius: 25px;
+    background-color: transparent;
+    color: #641F32;
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.favourite-btn:hover,
+.favourite-btn.saved {
+    background-color: #641F32;
+    color: white;
+}
+
+/* Saved hairstyles section */
+.saved-section {
+    padding: 65px 7%;
+    background-color: #EEECE1;
+}
+
+.saved-section h2 {
+    font-family: Georgia, serif;
+    font-size: 36px;
+    font-weight: normal;
+    color: #641F32;
+    margin-bottom: 20px;
+}
+
+.saved-empty {
+    color: #817B6A;
+    font-size: 14px;
+}
+
+#saved-list {
+    list-style: none;
+    padding: 0;
+}
+
+#saved-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid #D5D0C2;
+    color: #535B3B;
+    font-size: 15px;
+}
+

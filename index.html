@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Almeda | Your Hair Inspiration</title>
+
+    <meta name="description" content="Discover, explore and save beautiful hairstyle inspiration.">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="#" class="logo">almeda<span>.</span></a>
+
+        <nav class="desktop-nav">
+            <a href="#home">Home</a>
+            <a href="#explore">Explore</a>
+            <a href="#saved">Saved</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero" id="home">
+            <p class="eyebrow">YOUR HAIR, YOUR WAY</p>
+
+            <h1>Find your next<br>hair inspiration.</h1>
+
+            <p class="hero-description">
+                A space to discover, celebrate and save hairstyles
+                that make you feel like <strong>you</strong>.
+            </p>
+
+            <a href="#explore" class="explore-button">
+                Explore hairstyles
+            </a>
+        </section>
+
+        <section class="explore-section" id="explore">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">DISCOVER YOUR STYLE</p>
+                    <h2>Explore hairstyles</h2>
+                </div>
+            </div>
+
+            <div class="search-container">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search hairstyles..."
+                >
+            </div>
+
+            <div class="categories">
+                <button class="category active">All</button>
+                <button class="category">Braids</button>
+                <button class="category">Natural Hair</button>
+                <button class="category">Locs</button>
+                <button class="category">Twists</button>
+                <button class="category">Wigs</button>
+            </div>
+
+            <div class="hairstyle-grid" id="hairstyle-grid">
+
+                <article class="hairstyle-card" data-category="Braids">
+                    <div class="image-placeholder braids">
+                        <span>Braids</span>
+                    </div>
+                    <h3>Protective styles</h3>
+                    <p>Explore braided looks</p>
+
+                    <button class="favourite-btn" type="button">
+                        ♡ Save to favourites
+                    </button>
+                </article>
+
+                <article class="hairstyle-card" data-category="Natural Hair">
+                    <div class="image-placeholder natural">
+                        <span>Natural Hair</span>
+                    </div>
+                    <h3>Natural curls</h3>
+                    <p>Celebrate your texture</p>
+
+                    <button class="favourite-btn" type="button">
+                        ♡ Save to favourites
+                    </button>
+                </article>
+
+                <article class="hairstyle-card" data-category="Locs">
+                    <div class="image-placeholder locs">
+                        <span>Locs</span>
+                    </div>
+                    <h3>Beautiful locs</h3>
+                    <p>Find your next look</p>
+
+                    <button class="favourite-btn" type="button">
+                        ♡ Save to favourites
+                    </button>
+                </article>
+
+                <article class="hairstyle-card" data-category="Twists">
+                    <div class="image-placeholder twists">
+                        <span>Twists</span>
+                    </div>
+                    <h3>Twist inspiration</h3>
+                    <p>Discover new styles</p>
+
+                    <button class="favourite-btn" type="button">
+                        ♡ Save to favourites
+                    </button>
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="saved-section" id="saved">
+
+            <p class="eyebrow">YOUR PERSONAL COLLECTION</p>
+
+            <h2>Saved hairstyles</h2>
+
+            <p class="saved-empty" id="saved-empty">
+                You haven't saved any hairstyles yet.
+            </p>
+
+            <ul id="saved-list"></ul>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>almeda. &copy; 2026</p>
+        <p>Made for every crown.</p>
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
