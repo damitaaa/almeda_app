@@ -107,3 +107,37 @@ favouriteButtons.forEach(button => {
 // Display favourites when the page loads
 displayFavourites();
 updateFavouriteButtons();
+
+// Get hairstyle detail elements
+const detailSection = document.getElementById("hairstyle-details");
+const detailTitle = document.getElementById("detail-title");
+const detailCategory = document.getElementById("detail-category");
+const detailDescription = document.getElementById("detail-description");
+const backButton = document.getElementById("back-btn");
+const viewButtons = document.querySelectorAll(".view-btn");
+
+// Open a hairstyle's details
+viewButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const card = button.closest(".hairstyle-card");
+
+        detailTitle.textContent = card.querySelector("h3").textContent;
+        detailCategory.textContent = card.dataset.category;
+        detailDescription.textContent = card.dataset.description;
+
+        detailSection.hidden = false;
+        document.querySelector(".explore-section").hidden = true;
+
+        detailSection.scrollIntoView({ behavior: "smooth" });
+    });
+});
+
+// Return to the hairstyle gallery
+backButton.addEventListener("click", () => {
+    detailSection.hidden = true;
+    document.querySelector(".explore-section").hidden = false;
+
+    document.querySelector(".explore-section").scrollIntoView({
+        behavior: "smooth"
+    });
+});

@@ -1,4 +1,4 @@
-
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,16 +69,22 @@
 
             <div class="hairstyle-grid" id="hairstyle-grid">
 
-                <article class="hairstyle-card" data-category="Braids">
-                    <div class="image-placeholder braids">
-                        <span>Braids</span>
-                    </div>
-                    <h3>Protective styles</h3>
-                    <p>Explore braided looks</p>
+                <article
+                    class="hairstyle-card"
+                    data-category="Braids"
+                    data-description="Explore versatile protective braided hairstyles that can be adapted for different occasions."
+                >
+                    <div class="image-placeholder"></div>
 
-                    <button class="favourite-btn" type="button">
-                        ♡ Save to favourites
-                    </button>
+                        <h3>Protective styles</h3>
+
+                        <button class="view-btn" type="button">
+                            View hairstyle
+                        </button>
+
+                        <button class="favourite-btn" type="button">
+                            ♡ Save to favourites
+                        </button>
                 </article>
 
                 <article class="hairstyle-card" data-category="Natural Hair">
@@ -121,18 +127,18 @@
 
         </section>
 
-        <section class="saved-section" id="saved">
+        <section class="detail-section" id="hairstyle-details" hidden>
+            <button id="back-btn" type="button">
+                ← Back to hairstyles
+            </button>
 
-            <p class="eyebrow">YOUR PERSONAL COLLECTION</p>
+            <p class="eyebrow">HAIRSTYLE DETAILS</p>
 
-            <h2>Saved hairstyles</h2>
+            <h2 id="detail-title"></h2>
 
-            <p class="saved-empty" id="saved-empty">
-                You haven't saved any hairstyles yet.
-            </p>
+            <p id="detail-category"></p>
 
-            <ul id="saved-list"></ul>
-
+            <p id="detail-description"></p>
         </section>
     </main>
 

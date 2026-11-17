@@ -365,3 +365,57 @@ footer {
     font-size: 15px;
 }
 
+/* View hairstyle button */
+.view-btn {
+    padding: 10px 15px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 25px;
+    background-color: #68704A;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.view-btn:hover {
+    background-color: #535B3B;
+}
+
+/* Hairstyle detail section */
+.detail-section {
+    padding: 65px 7%;
+    background-color: #F7F3EA;
+}
+
+.detail-section h2 {
+    font-family: Georgia, serif;
+    font-size: 36px;
+    font-weight: normal;
+    color: #641F32;
+    margin: 20px 0;
+}
+
+.detail-section p {
+    color: #352820;
+    line-height: 1.7;
+}
+
+#back-btn {
+    padding: 10px 15px;
+    margin-bottom: 30px;
+    border: 1px solid #641F32;
+    border-radius: 25px;
+    background: transparent;
+    color: #641F32;
+    cursor: pointer;
+}
+
+#back-btn:hover {
+    background-color: #641F32;
+    color: white;
+}
+
+.detail-section[hidden] {
+    display: none;
+}
