@@ -41,105 +41,114 @@
             </a>
         </section>
 
-        <section class="explore-section" id="explore">
+        
+    <section class="explore-section" id="explore">
 
-            <div class="section-heading">
-                <div>
-                    <p class="eyebrow">DISCOVER YOUR STYLE</p>
-                    <h2>Explore hairstyles</h2>
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">DISCOVER YOUR STYLE</p>
+            <h2>Explore hairstyles</h2>
+            <p>Find inspiration for your hair, your way.</p>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <input
+            type="text"
+            id="search-input"
+            placeholder="Search hairstyles..."
+        >
+    </div>
+
+    <div class="hair-type-section">
+        <h3>Browse by hair type</h3>
+
+        <div class="hair-types">
+            <button class="hair-type active" data-hair-type="All">All</button>
+            <button class="hair-type" data-hair-type="3A">3A</button>
+            <button class="hair-type" data-hair-type="3B">3B</button>
+            <button class="hair-type" data-hair-type="3C">3C</button>
+            <button class="hair-type" data-hair-type="4A">4A</button>
+            <button class="hair-type" data-hair-type="4B">4B</button>
+            <button class="hair-type" data-hair-type="4C">4C</button>
+        </div>
+    </div>
+
+    <div class="style-category-section">
+        <h3>Browse by category</h3>
+
+        <div class="category-grid">
+
+            <article class="category-card">
+                <div class="category-image protective-image"></div>
+                <div class="category-info">
+                    <h4>Protective styles</h4>
+                    <p>Braids, knots and more.</p>
+                    <button class="open-category"
+                        data-category="protective">
+                        Explore styles →
+                    </button>
+                    <button class="save-item"
+                        data-id="protective"
+                        data-name="Protective styles"
+                        data-type="category">
+                        ♡ Save
+                    </button>
                 </div>
-            </div>
+            </article>
 
-            <div class="search-container">
-                <input
-                    type="text"
-                    id="search-input"
-                    placeholder="Search hairstyles..."
-                >
-            </div>
-
-            <div class="categories">
-                <button class="category active">All</button>
-                <button class="category">Braids</button>
-                <button class="category">Natural Hair</button>
-                <button class="category">Locs</button>
-                <button class="category">Twists</button>
-                <button class="category">Wigs</button>
-            </div>
-
-            <div class="hairstyle-grid" id="hairstyle-grid">
-
-                <article
-                    class="hairstyle-card"
-                    data-category="Braids"
-                    data-description="Explore versatile protective braided hairstyles that can be adapted for different occasions."
-                >
-                    <div class="image-placeholder"></div>
-
-                        <h3>Protective styles</h3>
-
-                        <button class="view-btn" type="button">
-                            View hairstyle
-                        </button>
-
-                        <button class="favourite-btn" type="button">
-                            ♡ Save to favourites
-                        </button>
-                </article>
-
-                <article class="hairstyle-card" data-category="Natural Hair">
-                    <div class="image-placeholder natural">
-                        <span>Natural Hair</span>
-                    </div>
-                    <h3>Natural curls</h3>
-                    <p>Celebrate your texture</p>
-
-                    <button class="favourite-btn" type="button">
-                        ♡ Save to favourites
+            <article class="category-card">
+                <div class="category-image natural-image"></div>
+                <div class="category-info">
+                    <h4>Natural styles</h4>
+                    <p>Twists, curls, locs and more.</p>
+                    <button class="open-category"
+                        data-category="natural">
+                        Explore styles →
                     </button>
-                </article>
-
-                <article class="hairstyle-card" data-category="Locs">
-                    <div class="image-placeholder locs">
-                        <span>Locs</span>
-                    </div>
-                    <h3>Beautiful locs</h3>
-                    <p>Find your next look</p>
-
-                    <button class="favourite-btn" type="button">
-                        ♡ Save to favourites
+                    <button class="save-item"
+                        data-id="natural"
+                        data-name="Natural styles"
+                        data-type="category">
+                        ♡ Save
                     </button>
-                </article>
+                </div>
+            </article>
 
-                <article class="hairstyle-card" data-category="Twists">
-                    <div class="image-placeholder twists">
-                        <span>Twists</span>
-                    </div>
-                    <h3>Twist inspiration</h3>
-                    <p>Discover new styles</p>
+        </div>
+    </div>
 
-                    <button class="favourite-btn" type="button">
-                        ♡ Save to favourites
-                    </button>
-                </article>
+    
+    <section id="subcategory-section" hidden>
+        <button id="back-categories" type="button">
+            ← All categories
+        </button>
 
-            </div>
+        <p class="eyebrow">EXPLORE COLLECTIONS</p>
+        <h3 id="subcategory-heading"></h3>
 
-        </section>
+        <div id="subcategory-grid" class="subcategory-grid"></div>
+    </section>
 
-        <section class="detail-section" id="hairstyle-details" hidden>
-            <button id="back-btn" type="button">
-                ← Back to hairstyles
-            </button>
+    <!-- Hairstyle photo gallery -->
+    <section id="gallery-section" hidden>
+        <button id="back-subcategories" type="button">
+            ← Back to styles
+        </button>
 
-            <p class="eyebrow">HAIRSTYLE DETAILS</p>
+        <p class="eyebrow">HAIRSTYLE INSPIRATION</p>
+        <h2 id="gallery-heading">Hairstyle inspiration</h2>
 
-            <h2 id="detail-title"></h2>
+        <div id="gallery-grid" class="gallery-grid">
+        </div>
+    </section>
 
-            <p id="detail-category"></p>
+</section>
 
-            <p id="detail-description"></p>
-        </section>
+    </section>
+
+    </section>
+
     </main>
 
     <footer>
@@ -148,6 +157,5 @@
     </footer>
 
     <script src="app.js"></script>
-
 </body>
 </html>

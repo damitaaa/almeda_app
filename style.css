@@ -419,3 +419,385 @@ footer {
 .detail-section[hidden] {
     display: none;
 }
+
+
+/* Hair type filters */
+.hair-type-section,
+.style-category-section {
+    margin-top: 40px;
+}
+
+.hair-type-section h3,
+.style-category-section h3 {
+    color: #641F32;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 18px;
+}
+
+.hair-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hair-type {
+    border: 1px solid #68704A;
+    background: transparent;
+    color: #535B3B;
+    padding: 11px 19px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.hair-type:hover,
+.hair-type.active {
+    background: #68704A;
+    color: white;
+}
+
+/* Category cards */
+.category-grid,
+.subcategory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.category-card {
+    background: #EEECE1;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.category-image {
+    height: 220px;
+    background: linear-gradient(135deg, #641F32, #A45D65);
+}
+
+.natural-image {
+    background: linear-gradient(135deg, #535B3B, #A7A77E);
+}
+
+.category-info {
+    padding: 20px;
+}
+
+.category-info h4 {
+    color: #641F32;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: normal;
+    margin: 0 0 8px;
+}
+
+.category-info p {
+    color: #817B6A;
+    font-size: 14px;
+}
+
+.open-category,
+.save-item {
+    border: none;
+    cursor: pointer;
+    margin: 8px 8px 0 0;
+    padding: 10px 14px;
+    border-radius: 20px;
+}
+
+.open-category {
+    background: #68704A;
+    color: white;
+}
+
+.save-item {
+    background: transparent;
+    border: 1px solid #641F32;
+    color: #641F32;
+}
+
+.save-item.saved {
+    background: #641F32;
+    color: white;
+}
+
+#subcategory-section {
+    margin-top: 50px;
+}
+
+#back-categories {
+    border: none;
+    background: transparent;
+    color: #641F32;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.subcategory-card {
+    background: #EEECE1;
+    padding: 22px;
+    border-radius: 12px;
+}
+
+.subcategory-card h4 {
+    color: #641F32;
+    margin-top: 0;
+}
+
+.subcategory-card button {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .category-grid,
+    .subcategory-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Explore section layout */
+.hair-type-section,
+.style-category-section {
+    margin-top: 40px;
+}
+
+.hair-type-section h3,
+.style-category-section h3 {
+    color: #641F32;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 18px;
+}
+
+/* Hair type buttons */
+.hair-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hair-type {
+    border: 1px solid #68704A;
+    background: transparent;
+    color: #535B3B;
+    padding: 11px 19px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.hair-type:hover,
+.hair-type.active {
+    background: #68704A;
+    color: white;
+}
+
+/* Category cards */
+.category-grid,
+.subcategory-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.category-card {
+    background: #EEECE1;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.category-image {
+    height: 220px;
+    background: linear-gradient(135deg, #641F32, #A45D65);
+}
+
+.natural-image {
+    background: linear-gradient(135deg, #535B3B, #A7A77E);
+}
+
+.category-info {
+    padding: 20px;
+}
+
+.category-info h4 {
+    color: #641F32;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: normal;
+    margin: 0 0 8px;
+}
+
+.category-info p {
+    color: #817B6A;
+    font-size: 14px;
+}
+
+/* Category buttons */
+.open-category,
+.save-item {
+    border: none;
+    cursor: pointer;
+    margin: 8px 8px 0 0;
+    padding: 10px 14px;
+    border-radius: 20px;
+}
+
+.open-category {
+    background: #68704A;
+    color: white;
+}
+
+.save-item {
+    background: transparent;
+    border: 1px solid #641F32;
+    color: #641F32;
+}
+
+.save-item.saved {
+    background: #641F32;
+    color: white;
+}
+
+/* Subcategories */
+#subcategory-section {
+    margin-top: 50px;
+}
+
+#back-categories {
+    border: none;
+    background: transparent;
+    color: #641F32;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.subcategory-card {
+    background: #EEECE1;
+    padding: 22px;
+    border-radius: 12px;
+}
+
+.subcategory-card h4 {
+    color: #641F32;
+    margin-top: 0;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    .category-grid,
+    .subcategory-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Individual hairstyle gallery */
+#hairstyle-gallery {
+    margin-top: 40px;
+}
+
+#back-subcategories {
+    border: none;
+    background: transparent;
+    color: #641F32;
+    cursor: pointer;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+#gallery-heading {
+    color: #641F32;
+    font-family: Georgia, serif;
+    font-size: 28px;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+.hairstyle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.hairstyle-pin {
+    background: #EEECE1;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.pin-image {
+    width: 100%;
+    height: 260px;
+    background: linear-gradient(135deg, #641F32, #A45D65);
+}
+
+.pin-info {
+    padding: 15px;
+}
+
+.pin-info h4 {
+    color: #641F32;
+    margin: 0 0 10px;
+}
+
+@media (max-width: 600px) {
+    .hairstyle-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* Hairstyle inspiration gallery */
+.gallery-grid {
+    columns: 4 220px;
+    column-gap: 18px;
+    margin-top: 25px;
+}
+
+.gallery-card {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 18px;
+    break-inside: avoid;
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(53, 40, 32, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-4px);
+}
+
+.gallery-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.gallery-card a {
+    display: block;
+    margin: 10px 12px;
+    color: #641F32;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.gallery-card a:hover {
+    text-decoration: underline;
+}
+
+#back-subcategories {
+    margin-bottom: 20px;
+    padding: 10px 16px;
+    background: #68704A;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#back-subcategories:hover {
+    background: #535B3B;
+}

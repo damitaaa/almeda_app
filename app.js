@@ -1,143 +1,228 @@
 
-// Find the search bar, hairstyle cards and category buttons
-const searchInput = document.getElementById("search-input");
-const hairstyleCards = document.querySelectorAll(".hairstyle-card");
-const categoryButtons = document.querySelectorAll(".category");
+// Almeda hairstyle collections
+const collections = {
+    protective: [
+        "Box braids",
+        "Knotless braids",
+        "Bora Bora braids",
+        "Miracle knots",
+        "French curl",
+        "Cornrows"
+    ],
+
+    natural: [
+        "Wash and gos",
+        "Mini twists",
+        "Mini braids",
+        "Locs"
+    ]
+};
+
+// Get page elements
+const categoryButtons = document.querySelectorAll(".open-category");
+const subcategorySection = document.getElementById("subcategory-section");
+const subcategoryGrid = document.getElementById("subcategory-grid");
+const subcategoryHeading = document.getElementById("subcategory-heading");
+const backButton = document.getElementById("back-categories");
+// Gallery elements
+const gallerySection = document.getElementById("gallery-section");
+const galleryGrid = document.getElementById("gallery-grid");
+const galleryHeading = document.getElementById("gallery-heading");
+const backSubcategoriesButton = document.getElementById("back-subcategories");
 
 // Store the selected category
-let selectedCategory = "All";
+let currentCategory = "";
 
-// Filter hairstyles
-function filterHairstyles() {
-    const searchTerm = searchInput.value.toLowerCase();
-
-    hairstyleCards.forEach(card => {
-        const category = card.dataset.category;
-        const cardText = card.textContent.toLowerCase();
-
-        const matchesCategory =
-            selectedCategory === "All" || category === selectedCategory;
-
-        const matchesSearch = cardText.includes(searchTerm);
-
-        card.style.display =
-            matchesCategory && matchesSearch ? "block" : "none";
-    });
-}
-
-// Search as the user types
-searchInput.addEventListener("input", filterHairstyles);
-
-// Filter by category
+// Open a category
 categoryButtons.forEach(button => {
     button.addEventListener("click", () => {
-        selectedCategory = button.textContent.trim();
+        currentCategory = button.dataset.category;
 
-        categoryButtons.forEach(btn => btn.classList.remove("active"));
-        button.classList.add("active");
+        const categoryName =
+            currentCategory === "protective"
+                ? "Protective styles"
+                : "Natural styles";
 
-        filterHairstyles();
+        subcategoryHeading.textContent = categoryName;
+
+        displaySubcategories();
+
+        subcategorySection.hidden = false;
+        document.querySelector(".style-category-section").hidden = true;
+        document.querySelector(".hair-type-section").hidden = true;
+
+        subcategorySection.scrollIntoView({
+            behavior: "smooth"
+        });
     });
 });
 
-// Get favourite elements
-const favouriteButtons = document.querySelectorAll(".favourite-btn");
-const savedList = document.getElementById("saved-list");
-const savedEmpty = document.getElementById("saved-empty");
 
-// Load saved hairstyles
-let savedHairstyles = JSON.parse(
-    localStorage.getItem("almedaFavourites") || "[]"
+// Display subcategories
+function displaySubcategories() {
+    subcategoryGrid.innerHTML = "";
+
+    collections[currentCategory].forEach((name, index) => {
+        const card = document.createElement("article");
+        card.className = "subcategory-card";
+
+        const id = `${currentCategory}-${index}`;
+
+        card.innerHTML = `
+            <h4>${name}</h4>
+
+            <button class="view-style"
+                data-name="${name}">
+                View hairstyles →
+            </button>
+
+            <button class="save-item"
+                data-id="${id}"
+                data-name="${name}"
+                data-type="subcategory">
+                ♡ Save
+            </button>
+        `;
+
+        subcategoryGrid.appendChild(card);
+    });
+
+    updateSaveButtons();
+}
+
+// Return to categories
+backButton.addEventListener("click", () => {
+    subcategorySection.hidden = true;
+    document.querySelector(".style-category-section").hidden = false;
+    document.querySelector(".hair-type-section").hidden = false;
+});
+
+// Save items
+let savedItems = JSON.parse(
+    localStorage.getItem("almedaSavedItems") || "[]"
 );
 
-// Display favourites
-function displayFavourites() {
-    savedList.innerHTML = "";
-
-    savedEmpty.style.display =
-        savedHairstyles.length === 0 ? "block" : "none";
-
-    savedHairstyles.forEach(name => {
-        const item = document.createElement("li");
-        item.textContent = name;
-        savedList.appendChild(item);
-    });
-}
-
-// Update favourite buttons
-function updateFavouriteButtons() {
-    favouriteButtons.forEach(button => {
-        const card = button.closest(".hairstyle-card");
-        const name = card.querySelector("h3").textContent;
-
-        if (savedHairstyles.includes(name)) {
-            button.textContent = "♥ Saved";
-            button.classList.add("saved");
-        } else {
-            button.textContent = "♡ Save to favourites";
-            button.classList.remove("saved");
-        }
-    });
-}
-
-// Save or remove favourites
-favouriteButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const card = button.closest(".hairstyle-card");
-        const name = card.querySelector("h3").textContent;
-
-        if (savedHairstyles.includes(name)) {
-            savedHairstyles = savedHairstyles.filter(
-                hairstyle => hairstyle !== name
-            );
-        } else {
-            savedHairstyles.push(name);
-        }
-
-        localStorage.setItem(
-            "almedaFavourites",
-            JSON.stringify(savedHairstyles)
+function updateSaveButtons() {
+    document.querySelectorAll(".save-item").forEach(button => {
+        const isSaved = savedItems.some(
+            item => item.id === button.dataset.id
         );
 
-        displayFavourites();
-        updateFavouriteButtons();
+        button.textContent = isSaved ? "♥ Saved" : "♡ Save";
+        button.classList.toggle("saved", isSaved);
     });
+}
+
+document.addEventListener("click", event => {
+    const button = event.target.closest(".save-item");
+
+    if (!button) return;
+
+    const id = button.dataset.id;
+
+    const existingItem = savedItems.find(item => item.id === id);
+
+    if (existingItem) {
+        savedItems = savedItems.filter(item => item.id !== id);
+    } else {
+        savedItems.push({
+            id: id,
+            name: button.dataset.name,
+            type: button.dataset.type
+        });
+    }
+
+    localStorage.setItem(
+        "almedaSavedItems",
+        JSON.stringify(savedItems)
+    );
+
+    updateSaveButtons();
 });
 
-// Display favourites when the page loads
-displayFavourites();
-updateFavouriteButtons();
+// Update saved buttons when the page loads
+updateSaveButtons();
 
-// Get hairstyle detail elements
-const detailSection = document.getElementById("hairstyle-details");
-const detailTitle = document.getElementById("detail-title");
-const detailCategory = document.getElementById("detail-category");
-const detailDescription = document.getElementById("detail-description");
-const backButton = document.getElementById("back-btn");
-const viewButtons = document.querySelectorAll(".view-btn");
+// Open a hairstyle gallery
+document.addEventListener("click", async event => {
+    const button = event.target.closest(".view-style");
 
-// Open a hairstyle's details
-viewButtons.forEach(button => {
-    button.addEventListener("click", () => {
-        const card = button.closest(".hairstyle-card");
+    if (!button) return;
 
-        detailTitle.textContent = card.querySelector("h3").textContent;
-        detailCategory.textContent = card.dataset.category;
-        detailDescription.textContent = card.dataset.description;
+    const styleName = button.dataset.name;
+    console.log("Gallery button clicked:", styleName);
 
-        detailSection.hidden = false;
-        document.querySelector(".explore-section").hidden = true;
+    // Hide the previous sections
+    subcategorySection.hidden = true;
+    gallerySection.hidden = false;
 
-        detailSection.scrollIntoView({ behavior: "smooth" });
-    });
-});
+    galleryHeading.textContent = styleName;
+    galleryGrid.innerHTML = "<p>Loading hairstyles...</p>";
 
-// Return to the hairstyle gallery
-backButton.addEventListener("click", () => {
-    detailSection.hidden = true;
-    document.querySelector(".explore-section").hidden = false;
-
-    document.querySelector(".explore-section").scrollIntoView({
+    gallerySection.scrollIntoView({
         behavior: "smooth"
     });
+
+    try {
+        const response = await fetch(
+            `/api/photos?query=${encodeURIComponent(styleName)}`
+        );
+
+        if (!response.ok) {
+            throw new Error("Unable to fetch hairstyles.");
+        }
+
+        const data = await response.json();
+
+        galleryGrid.innerHTML = "";
+
+        if (data.results.length === 0) {
+            galleryGrid.innerHTML = "<p>No hairstyles found.</p>";
+            return;
+        }
+
+        data.results.forEach(photo => {
+            const card = document.createElement("article");
+            card.className = "gallery-card";
+
+            const image = document.createElement("img");
+            image.src = photo.image;
+            image.alt = photo.description;
+            image.loading = "lazy";
+
+            const photographer = document.createElement("a");
+            photographer.href = photo.photographerLink;
+            photographer.textContent = `Photo by ${photo.photographer}`;
+            photographer.target = "_blank";
+            photographer.rel = "noopener noreferrer";
+
+            const photoLink = document.createElement("a");
+            photoLink.href = photo.photoLink;
+            photoLink.textContent = "View on Unsplash";
+            photoLink.target = "_blank";
+            photoLink.rel = "noopener noreferrer";
+
+            card.appendChild(image);
+            card.appendChild(photographer);
+            card.appendChild(photoLink);
+
+            galleryGrid.appendChild(card);
+        });
+
+    } catch (error) {
+        console.error(error);
+
+        galleryGrid.innerHTML =
+            "<p>Sorry, we couldn't load the hairstyles. Please try again.</p>";
+    }
 });
+
+// Return to the subcategories
+backSubcategoriesButton.addEventListener("click", () => {
+    gallerySection.hidden = true;
+    subcategorySection.hidden = false;
+
+    galleryGrid.innerHTML = "";
+});
+
+console.log("Almeda categories are working!");
