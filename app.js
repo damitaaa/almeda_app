@@ -576,3 +576,17 @@ searchInput.addEventListener("keydown", async event => {
             "<p>Sorry, we couldn't complete your search. Please try again.</p>";
     }
 });
+
+// Register the Almeda service worker
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker
+            .register("/service-worker.js")
+            .then(() => {
+                console.log("Almeda service worker registered!");
+            })
+            .catch(error => {
+                console.error("Service worker error:", error);
+            });
+    });
+}
