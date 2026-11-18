@@ -801,3 +801,59 @@ footer {
 #back-subcategories:hover {
     background: #535B3B;
 }
+
+/* Saved page */
+.saved-section {
+    padding: 70px 8%;
+    background: #f8f5f0;
+}
+
+.saved-section .section-heading {
+    margin-bottom: 40px;
+}
+
+.saved-group {
+    margin-bottom: 45px;
+}
+
+.saved-group h3 {
+    color: #641F32;
+    margin-bottom: 20px;
+}
+
+.saved-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.saved-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(53, 40, 32, 0.08);
+}
+
+.saved-card h4 {
+    color: #641F32;
+    margin-bottom: 15px;
+}
+
+.remove-saved {
+    background: #68704A;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 15px;
+    cursor: pointer;
+    margin: 12px;
+}
+
+.remove-saved:hover {
+    background: #535B3B;
+}
+
+#saved-photos .gallery-card p {
+    padding: 10px 12px 0;
+    font-size: 0.85rem;
+}
